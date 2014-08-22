@@ -10,9 +10,9 @@ beautifulsoup-notes
  -soup.b
 - first link after the b tag
  - soup.b.a 
--id: 
+- id: 
  - soup.findAll(id="link2")
--eliminate from the tree:
+- eliminate from the tree:
  - decompose()
 
 -up: 
