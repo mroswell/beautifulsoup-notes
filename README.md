@@ -17,7 +17,7 @@ beautifulsoup-notes
 
 -up: 
  - parent
--down:
+- down:
  - contents
     - Tag, NavigableString
 - nextSibling
