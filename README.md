@@ -15,7 +15,7 @@ beautifulsoup-notes
 - eliminate from the tree:
  - decompose()
 
--up: 
+- up: 
  - parent
 - down:
  - contents
