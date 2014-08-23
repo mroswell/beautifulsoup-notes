@@ -6,13 +6,13 @@ from bs4 import BeautifulSoup
 
 import urllib2
 import csv
-import os
+#import os
 import re
 
 # os.chdir("/Users/marjorieroswell/Dropbox/python/caucuses")
 
 f= csv.writer(open("drone_caucus_members.csv", "w"))
-f.writerow(["caucus_name","name","district","photo_url","website"]) 
+f.writerow(["caucus_name","name","district","website","photo_url"]) 
 
 page = urllib2.urlopen("http://unmannedsystemscaucus.mckeon.house.gov/about/membership.shtml")
 
@@ -27,6 +27,8 @@ for row in soup.find_all("tr"):
 			membertext = str(tds[i].get_text())
                         website = str(tds[i].a['href'])
                         photo_url = str(tds[i].img['src'])
+                        photo_url = re.sub("http://unmannedsystemscaucus.mckeon.house.gov","",photo_url)
+                        photo_url = "http://unmannedsystemscaucus.mckeon.house.gov" + photo_url
 			m = re.search(r'(.*)\((.*)\)', membertext)
 			if m:
 				district = m.group(2)
@@ -39,4 +41,4 @@ for row in soup.find_all("tr"):
 			print "bad string"
 			continue
 
-     		f.writerow([caucus_name, member, district, photo_url, website])
+     		f.writerow([caucus_name, member, district, website, photo_url])
